@@ -16,7 +16,7 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-// import { authClient } from "@/lib/auth-client";
+import { authClient } from "@/lib/auth-client";
 import { Button } from "@/components/ui/button";
 import { Form, FormField } from "@/components/ui/form";
 import { FormItem, FormLabel } from "@/components/ui/form";
@@ -45,28 +45,28 @@ const LoginForm = () => {
   });
 
   const handleSubmit = async (values: z.infer<typeof loginSchema>) => {
-    // await authClient.signIn.email(
-    //   {
-    //     email: values.email,
-    //     password: values.password,
-    //   },
-    //   {
-    //     onSuccess: () => {
-    //       router.push("/dashboard");
-    //     },
-    //     onError: () => {
-    //       toast.error("E-mail ou senha inválidos.");
-    //     },
-    //   },
-    // );
+    await authClient.signIn.email(
+      {
+        email: values.email,
+        password: values.password,
+      },
+      {
+        onSuccess: () => {
+          router.push("/dashboard");
+        },
+        onError: () => {
+          toast.error("E-mail ou senha inválidos.");
+        },
+      },
+    );
   };
 
   const handleGoogleLogin = async () => {
-    // await authClient.signIn.social({
-    //   provider: "google",
-    //   callbackURL: "/dashboard",
-    //   scopes: ["email", "profile"],
-    // });
+    await authClient.signIn.social({
+      provider: "google",
+      callbackURL: "/dashboard",
+      scopes: ["email", "profile"],
+    });
   };
 
   return (
