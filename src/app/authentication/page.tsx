@@ -6,10 +6,12 @@ import LoginForm from "@/app/authentication/components/login-form";
 import SignUpForm from "@/app/authentication//components/sign-up-form";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-const LoginPage = async () => {
-  const session = await auth.api.getSession({ headers: await headers() });
+const AuthenticationPage = async () => {
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
 
-  if (!session?.user) redirect("/dashboard");
+  if (session?.user) redirect("/dashboard");
 
   return (
     <div className="flex h-screen w-screen items-center justify-center">
@@ -29,4 +31,4 @@ const LoginPage = async () => {
   );
 };
 
-export default LoginPage;
+export default AuthenticationPage;
