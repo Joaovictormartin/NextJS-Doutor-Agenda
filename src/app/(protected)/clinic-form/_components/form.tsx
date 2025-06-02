@@ -44,34 +44,32 @@ const ClinicForm = () => {
   };
 
   return (
-    <>
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-          <FormField
-            name="name"
-            control={form.control}
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Nome</FormLabel>
-                <FormControl>
-                  <Input {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        <FormField
+          name="name"
+          control={form.control}
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Nome</FormLabel>
+              <FormControl>
+                <Input {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-          <DialogFooter>
-            <Button type="submit" disabled={form.formState.isSubmitting}>
-              {form.formState.isSubmitting && (
-                <Loader2 className="h-4 w-4 animate-spin" />
-              )}
-              Criar clínica
-            </Button>
-          </DialogFooter>
-        </form>
-      </Form>
-    </>
+        <DialogFooter>
+          <Button type="submit" disabled={form.formState.isSubmitting}>
+            {form.formState.isSubmitting && (
+              <Loader2 className="h-4 w-4 animate-spin" />
+            )}
+            Criar clínica
+          </Button>
+        </DialogFooter>
+      </form>
+    </Form>
   );
 };
 

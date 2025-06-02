@@ -113,14 +113,13 @@ const LoginForm = () => {
             <div className="w-full space-y-2">
               <Button
                 type="submit"
-                className="w-full"
+                className="w-full gap-1"
                 disabled={form.formState.isSubmitting}
               >
-                {form.formState.isSubmitting ? (
+                {form.formState.isSubmitting && (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                ) : (
-                  "Entrar"
                 )}
+                Entrar
               </Button>
               <Button
                 variant="outline"
