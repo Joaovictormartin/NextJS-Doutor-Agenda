@@ -29,7 +29,7 @@ export const auth = betterAuth({
         session,
         user: {
           ...user,
-          clinic: { id: clinics.clinicId, name: clinics.clinic.name },
+          clinic: { id: clinics?.clinicId, name: clinics?.clinic.name },
         },
       };
     }),
