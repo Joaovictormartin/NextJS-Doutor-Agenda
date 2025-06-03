@@ -1,5 +1,4 @@
 import { eq } from "drizzle-orm";
-import { Plus } from "lucide-react";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
@@ -14,8 +13,8 @@ import {
 } from "@/components/page-container";
 import { db } from "@/db";
 import { auth } from "@/lib/auth";
-import { Button } from "@/components/ui/button";
 import { usersToClinicsTable } from "@/db/schema";
+import { AddDoctorButton } from "./_components/add-doctor-button";
 
 const DoctorsPage = async () => {
   const session = await auth.api.getSession({ headers: await headers() });
@@ -39,10 +38,7 @@ const DoctorsPage = async () => {
         </PageHeaderContent>
 
         <PageActions>
-          <Button>
-            Adicionar médicos
-            <Plus />
-          </Button>
+          <AddDoctorButton />
         </PageActions>
       </PageHeader>
 
