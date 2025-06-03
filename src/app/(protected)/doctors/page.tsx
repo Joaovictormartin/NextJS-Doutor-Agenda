@@ -13,19 +13,19 @@ import {
 } from "@/components/page-container";
 import { db } from "@/db";
 import { auth } from "@/lib/auth";
-import { usersToClinicsTable } from "@/db/schema";
+import { doctorsTable } from "@/db/schema";
+import DoctorCard from "./_components/doctor-card";
 import { AddDoctorButton } from "./_components/add-doctor-button";
 
 const DoctorsPage = async () => {
   const session = await auth.api.getSession({ headers: await headers() });
 
   if (!session?.user) redirect("/authentication");
+  if (!session.user.clinic) redirect("/clinic-form");
 
-  const clinics = await db.query.usersToClinicsTable.findMany({
-    where: eq(usersToClinicsTable.userId, session.user.id),
+  const douctors = await db.query.doctorsTable.findMany({
+    where: eq(doctorsTable.clinicId, session.user.clinic.id),
   });
-
-  if (clinics.length === 0) redirect("/clinic-form");
 
   return (
     <PageContainer>
@@ -43,7 +43,17 @@ const DoctorsPage = async () => {
       </PageHeader>
 
       <PageContent>
-        <h1>Médicos</h1>
+        <div className="grid grid-cols-3 gap-6">
+          {douctors.length ? (
+            douctors.map((doctor) => (
+              <DoctorCard key={doctor.id} doctor={doctor} />
+            ))
+          ) : (
+            <p className="text-muted-foreground text-sm">
+              Nenhum médico cadastrado
+            </p>
+          )}
+        </div>
       </PageContent>
     </PageContainer>
   );
