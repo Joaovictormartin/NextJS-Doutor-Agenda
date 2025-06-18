@@ -13,7 +13,7 @@ interface AddAppointmentButtonProps {
   doctors: (typeof doctorsTable.$inferSelect)[];
 }
 
-const AddAppointmentButton = ({
+export const AddAppointmentButton = ({
   patients,
   doctors,
 }: AddAppointmentButtonProps) => {
@@ -22,7 +22,7 @@ const AddAppointmentButton = ({
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button>
+        <Button className="w-full sm:w-fit">
           <Plus className="mr-2 h-4 w-4" />
           Novo agendamento
         </Button>
@@ -37,5 +37,3 @@ const AddAppointmentButton = ({
     </Dialog>
   );
 };
-
-export default AddAppointmentButton;

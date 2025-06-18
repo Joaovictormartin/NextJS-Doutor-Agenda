@@ -57,7 +57,7 @@ export const DataTable = <T,>({ table }: DataTableProps<T>) => {
                 className="h-24 text-center"
                 colSpan={table.getAllColumns().length}
               >
-                Nenhum paciente encontrado.
+                Nenhum registro encontrado.
               </TableCell>
             </TableRow>
           )}
