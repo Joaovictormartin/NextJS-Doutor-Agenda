@@ -13,7 +13,7 @@ import {
 } from "@/components/page-container";
 import { db } from "@/db";
 import { auth } from "@/lib/auth";
-import AddAppointmentButton from "./_components/add-appointment-button";
+import { AddAppointmentButton } from "./_components/add-appointment-button";
 import { appointmentsTable, doctorsTable, patientsTable } from "@/db/schema";
 import { DataTableAppointments } from "./_components/data-table-appointments";
 

@@ -8,7 +8,9 @@ export const PageContainer = ({ children }: Props) => {
 
 export const PageHeader = ({ children }: Props) => {
   return (
-    <div className="flex w-full items-center justify-between">{children}</div>
+    <div className="flex w-full flex-col items-center justify-between gap-2 sm:flex-row">
+      {children}
+    </div>
   );
 };
 
@@ -25,7 +27,9 @@ export const PageDescription = ({ children }: Props) => {
 };
 
 export const PageActions = ({ children }: Props) => {
-  return <div className="flex items-center gap-2">{children}</div>;
+  return (
+    <div className="flex w-full items-center justify-end gap-2">{children}</div>
+  );
 };
 
 export const PageContent = ({ children }: Props) => {

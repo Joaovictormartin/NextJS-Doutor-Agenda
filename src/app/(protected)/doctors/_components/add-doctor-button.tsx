@@ -13,7 +13,7 @@ export const AddDoctorButton = () => {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button>
+        <Button className="w-full sm:w-fit">
           <Plus />
           Adicionar médico
         </Button>
