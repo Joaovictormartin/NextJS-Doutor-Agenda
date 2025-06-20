@@ -63,7 +63,9 @@ export const UpsertDoctorForm = ({
 
   const upsertDoctorAction = useAction(upsertDoctor, {
     onSuccess: () => {
-      toast.success("Médico adicionado com sucesso.");
+      toast.success(
+        `Médico ${doctor ? "atualizado" : "adicionado"} com sucesso.`,
+      );
       onSuccess?.();
     },
     onError: () => {
